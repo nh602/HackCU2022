@@ -1,5 +1,5 @@
 import "../css/login.css";
-import { TextField, Autocomplete, Typography, Button, Modal } from '@mui/material';
+import { TextField, Autocomplete, Typography, Button, Modal, Box } from '@mui/material';
 import { useState } from "react";
 
 const states = [
@@ -26,7 +26,7 @@ const Login = () => {
     };
 
     const loginDiv = (
-        <div className="login-div">
+        <Box className="login-div">
             <div className="modal-header">
                 <Typography variant="h4">Login</Typography>
                 <Typography>Please enter valid voter-registration information.</Typography>
@@ -50,14 +50,14 @@ const Login = () => {
 
                 <Button variant="text">Submit</Button>
             </form>
-        </div>
+        </Box>
     );
 
     return (
         <div>
-            <button type="button" onClick={handleOpen}>
-                Open Modal
-            </button>
+            <Button variant="outlined" onClick={handleOpen}>
+                Login
+            </Button>
             <Modal open={open} onClose={handleClose}>
                 { loginDiv }
             </Modal>
