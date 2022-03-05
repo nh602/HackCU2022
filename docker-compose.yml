@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  database:
+    container_name: "voter_database"
+    image: "postgres:latest"
+    volumes:
+      - ./db_data:/var/lib/postgresql/data/
+      - ./initDatabase.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=username
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=voting
+  
