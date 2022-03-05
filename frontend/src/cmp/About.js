@@ -1,11 +1,11 @@
-
+import { Typography } from "@mui/material";
 
 
 const About = () => {
 
     return (
         <div className="about page">
-            <h1>About Page</h1>
+            <Typography variant="h2" className="page-title">About Page</Typography>
         </div>
     );
 }

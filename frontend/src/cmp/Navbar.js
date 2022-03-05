@@ -8,14 +8,15 @@ import {
     Box,
     Container
 } from '@mui/material';
+import '../css/navbar.css';
 
 const Navbar = () => {
 
     return (
-        <AppBar>
+        <AppBar position="static">
             <Container maxWidth="x1">
                 <Toolbar disableGutters>
-                    <Typography variant="h5" component="div" sx={{ mr: 2, display: { md: 'flex' } }}>
+                    <Typography variant="h5" sx={{ mr: 2, display: { md: 'flex' } }}>
                         Navbar
                     </Typography>
 
