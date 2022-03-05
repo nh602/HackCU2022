@@ -1,0 +1,24 @@
+CREATE TABLE IF NOT EXISTS ballotMeasures(
+  id INTEGER PRIMARY KEY,
+  measureText VARCHAR(1000) NOT NULL,
+  measureOptions VARCHAR(60)[] NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS voterAddress(
+  id INTEGER PRIMARY KEY,
+  line1 VARCHAR(100) NOT NULL,
+  line2 VARCHAR(100),
+  zipcode VARCHAR(5) NOT NULL,
+  city VARCHAR(30) NOT NULL,
+  state VARCHAR(2) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS voterRegistration(
+  id INTEGER PRIMARY KEY,
+  firstName VARCHAR(30) NOT NULL,
+  middleName VARCHAR(30),
+  lastName VARCHAR(30) NOT NULL,
+  addressId INTEGER NOT NULL,
+  FOREIGN KEY(addressId)
+    REFERENCES voterAddress(id)
+);
