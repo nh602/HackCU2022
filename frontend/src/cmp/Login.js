@@ -45,7 +45,7 @@ const Login = () => {
         UserService.postLogin(formValues)
             .then((res) => {
                 console.log(res)
-                if (res.code == 200) {
+                if (res.code === 200) {
                     window.open("/ballot", "_self"); 
                 }
             })
