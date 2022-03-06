@@ -1,11 +1,11 @@
 CREATE TABLE IF NOT EXISTS ballotMeasures(
-  id INTEGER PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   measureText VARCHAR(1000) NOT NULL,
   measureOptions VARCHAR(60)[] NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS voterAddress(
-  id INTEGER PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   line1 VARCHAR(100) NOT NULL,
   line2 VARCHAR(100),
   zipcode VARCHAR(5) NOT NULL,
@@ -14,11 +14,13 @@ CREATE TABLE IF NOT EXISTS voterAddress(
 );
 
 CREATE TABLE IF NOT EXISTS voterRegistration(
-  id INTEGER PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   firstName VARCHAR(30) NOT NULL,
   middleName VARCHAR(30),
   lastName VARCHAR(30) NOT NULL,
-  addressId INTEGER NOT NULL,
+  ssn VARCHAR(60) NOT NULL,
+  addressId SERIAL NOT NULL,
+  dob DATE NOT NULL,
   FOREIGN KEY(addressId)
     REFERENCES voterAddress(id)
 );
