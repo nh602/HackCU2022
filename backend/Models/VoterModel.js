@@ -1,5 +1,6 @@
 const {query} = require("../db");
 const {compare} = require("bcrypt");
+const {createHash} = require("crypto");
 
 /*
 Check for voter registration
@@ -25,6 +26,7 @@ async function checkVoterRegistration(req, res, next){
         if(comp) {
           found = true;
           req.voter = voter;
+          req.voter.ssn = createHash('sha256').update(ssn).digest('hex');
           return next();
         }
       }

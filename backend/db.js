@@ -1,5 +1,6 @@
 const {Pool} = require('pg');
 const {hash} = require('bcrypt');
+const { Blockchain } = require('./blockchain');
 
 const pool = new Pool();
 
@@ -42,7 +43,6 @@ async function loadData(){
     process.exit(e);
   }
 }
-
 
 module.exports = {
   query: async (text, params) => {
