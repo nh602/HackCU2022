@@ -22,10 +22,8 @@ const UserService = {
 
     postLogin: async function(data) {
         try {
-            // const response = await axios.post(/api/users/, data);
-            // return response.data;
-            console.log(data);
-            return {success: true};
+            const response = await axios.post("http://localhost:3000/api/users/", data);
+            return response.data;
         } catch (error) {
             throw error;
         }
@@ -33,10 +31,8 @@ const UserService = {
 
     postBallot: async function(data) {
         try {
-            // const response = await axios.post();
-            // return response.data;
-            console.table(data);
-            return { success: true };
+            const response = await axios.post("http://localhost:3000/api/votes/", {"ballotMeasures": data});
+            return response.data;
         } catch (error) {
             throw error;
         }

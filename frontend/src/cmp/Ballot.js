@@ -51,7 +51,7 @@ const Ballot = (props) => {
                 <label className="option-label" key={ keyVar }>
                         <input 
                             type="radio" 
-                            name={ `measure-${props.id}-option` }
+                            name={ `${props.id}` }
                             id={ `measure-${props.id}-option-${keyVar}`}
                             value={ optionText }
                             onChange={ handleChange }
