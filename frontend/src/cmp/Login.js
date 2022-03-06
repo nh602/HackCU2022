@@ -50,12 +50,12 @@ const Login = () => {
                 }
             })
             .catch((err) => {
-                console.log(err)
+                window.open("/error", "_self")
             }, []);
     };
 
     const loginDiv = (
-        <Paper className="login-div">
+        <Paper className="login-div" elevation={1}>
             <div className="modal-header">
                 <Typography align="center" variant="h6">Please enter your legal name, date of birth, and SSN.</Typography>
             </div>
@@ -67,7 +67,7 @@ const Login = () => {
                 <div className="btn-squash">
                     <Button variant="contained" color="secondary" type="submit" ><strong>Submit</strong></Button>
                 </div>
-                </form>
+            </form>
         </Paper>
     );
 

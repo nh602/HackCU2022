@@ -11,6 +11,7 @@ const UserService = {
         }
     },
 
+
     getBallot: async function(location) {
         try {
             const response = await axios.get();
@@ -38,5 +39,6 @@ const UserService = {
         }
     }
 }
+
 
 export default UserService;
