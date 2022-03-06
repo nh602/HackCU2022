@@ -1,6 +1,7 @@
 import { Typography, Button, Paper } from '@mui/material';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import UserService from '../services/UserService';
+import VoteContext from './VoteContext';
 import "../css/ballot.css";
 
 
@@ -37,6 +38,7 @@ const Ballot = (props) => {
 
     const [ballotData, setBallotData] = useState({})
     const ballotInfo = mockBallot;
+    const { vote } = useContext(VoteContext);
 
     const handleChange = event => {
         let newBallotData = ballotData;
@@ -51,7 +53,7 @@ const Ballot = (props) => {
                 <label className="option-label" key={ keyVar }>
                         <input 
                             type="radio" 
-                            name={ `measure-${props.id}-option` }
+                            name={ `${props.id}` }
                             id={ `measure-${props.id}-option-${keyVar}`}
                             value={ optionText }
                             onChange={ handleChange }
@@ -91,21 +93,23 @@ const Ballot = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
         UserService.postBallot(ballotData)
             .then((res) => {
                 console.log(res);
                 if(res.success === true) {
-                    //window.open('/', "_self")
+                    window.open('/success', "_self")
                 }
             })
             .catch((err) => {
                 console.log(err);
+                window.open("/error", "_self");
             }, []);
     };
 
     return (
         <div className="ballot page">
-            <Paper className="ballot-paper" elevation={5}>
+            <Paper className="ballot-paper" elevation={1}>
                 <form className="ballot-form" onSubmit={ handleSubmit } >
                     <Typography variant="h4" className="ballot-title">
                         { props.state } State Ballot
