@@ -12,8 +12,8 @@ import UserService from '../services/UserService';
 // ];
 
 const defaultValues = {
-    firstname: "",
-    lastname: "",
+    firstName: "",
+    lastName: "",
     dob: "",
     ssn: "",
 };
@@ -45,7 +45,7 @@ const Login = () => {
         UserService.postLogin(formValues)
             .then((res) => {
                 console.log(res)
-                if (res.success === true) {
+                if (res.code === 200) {
                     window.open("/ballot", "_self"); 
                 }
             })
@@ -60,8 +60,8 @@ const Login = () => {
                 <Typography align="center" variant="h6">Please enter your legal name, date of birth, and SSN.</Typography>
             </div>
             <form className="login-form" onSubmit={ handleSubmit } id="login-form">
-                <TextField name="firstname" label="First Name" variant="standard" value={formValues.firstname} onChange={handleInputChange} required />
-                <TextField name="lastname" label="Last Name" variant="standard" value={formValues.lastname} onChange={handleInputChange} required />
+                <TextField name="firstName" label="First Name" variant="standard" value={formValues.firstName} onChange={handleInputChange} required />
+                <TextField name="lastName" label="Last Name" variant="standard" value={formValues.lastName} onChange={handleInputChange} required />
                 <TextField name="dob" label=" " type="date" variant="standard" value={formValues.dob} onChange={handleInputChange} required />
                 <TextField name="ssn" type="password" label="SSN" variant="standard" value={formValues.ssn} onChange={handleInputChange} required />
                 <div className="btn-squash">

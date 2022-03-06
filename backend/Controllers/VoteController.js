@@ -43,4 +43,8 @@ function searchForBallot(req, res){
   return res.status(404).send("Failed to find vote.");
 }
 
+function tallyVotes(req, res){
+  
+}
+
 module.exports = {checkCookie, processVote, searchForBallot}
