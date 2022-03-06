@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-export default {
+
+const UserService = {
     getVote: async function(voter) {
         try {
             const response = await axios.get();
@@ -39,3 +40,5 @@ export default {
         }
     }
 }
+
+export default UserService;
