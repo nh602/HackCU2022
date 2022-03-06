@@ -2,25 +2,34 @@
 .login-div {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: fit-content;
     align-items: center;
-    gap: 20px;
-    padding: 20px;
-    padding-bottom: 30px;
-    padding-top: 30px;
     position: absolute;
     top: 50%;
     left: 50%;
+    padding-top: 20px;
     transform: translate(-50%, -50%);
-    background-color: aliceblue;
     border-radius: 10px;
+    background-color: silver;
 }
 
 .login-form {
     padding: 10px;
-    width: 90%;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 10px;
 }
 
 .modal-header {
-    width: 90%;
+    width: 70%;
 }
+
+.btn-squash {
+    width: 30%;
+    align-self: center;
+
+}
+
+

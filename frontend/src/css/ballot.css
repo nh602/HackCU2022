@@ -1,14 +1,15 @@
 
-.ballot-form {
-    background-color: rgba(240, 248, 255, 0.493);
+.ballot-paper {
     width: 50%;
+}
+
+.ballot-form {
     display: flex;
     flex-direction: column;
     min-height: 80%;
     max-height: auto;
     justify-content: space-evenly;
     padding: 30px;
-    padding-top: 20px;
     gap: 20px;
 }
 

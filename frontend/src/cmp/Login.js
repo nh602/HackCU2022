@@ -1,5 +1,5 @@
 import "../css/login.css";
-import { TextField, Typography, Button, Modal, Box, Route } from '@mui/material';
+import { TextField, Button, Modal, Typography, Paper } from '@mui/material';
 import { useState } from "react";
 import UserService from '../services/UserService';
 
@@ -45,8 +45,8 @@ const Login = () => {
         UserService.postLogin(formValues)
             .then((res) => {
                 console.log(res)
-                if (res.success == true) {
-                    window.open("/Ballot"); 
+                if (res.success === true) {
+                    window.open("/ballot", "_self"); 
                 }
             })
             .catch((err) => {
@@ -55,48 +55,26 @@ const Login = () => {
     };
 
     const loginDiv = (
-        <Box className="login-div">
+        <Paper className="login-div">
             <div className="modal-header">
-                <Typography variant="h4">Login</Typography>
-                <Typography>Please enter valid voter-registration information.</Typography>
+                <Typography align="center" variant="h6">Please enter your legal name, date of birth, and SSN.</Typography>
             </div>
             <form className="login-form" onSubmit={ handleSubmit } id="login-form">
-                <div className="form-row">
-                    <TextField name="firstname" label="First Name" variant="standard" value={formValues.firstname} onChange={handleInputChange} required />
-                    <TextField name="lastname" label="Last Name" variant="standard" value={formValues.lastname} onChange={handleInputChange} style={{ marginLeft: "10px" }} required />
+                <TextField name="firstname" label="First Name" variant="standard" value={formValues.firstname} onChange={handleInputChange} required />
+                <TextField name="lastname" label="Last Name" variant="standard" value={formValues.lastname} onChange={handleInputChange} required />
+                <TextField name="dob" label=" " type="date" variant="standard" value={formValues.dob} onChange={handleInputChange} required />
+                <TextField name="ssn" type="password" label="SSN" variant="standard" value={formValues.ssn} onChange={handleInputChange} required />
+                <div className="btn-squash">
+                    <Button variant="contained" color="secondary" type="submit" ><strong>Submit</strong></Button>
                 </div>
-                
-                <div style={{ height: "90px" }}>
-                    <TextField
-                        id="date"
-                        name="dob"
-                        label="Birth Date"
-                        type="date"
-                        defaultValue="2022-05-03"
-                        sx={{ width: 220 }}
-                        InputLabelProps={{
-                        shrink: true,
-                        }}
-                        style={{ marginTop: "20px", marginBottom: "200px" }}
-                        value={formValues.dob}
-                        onChange={handleInputChange}
-                        required
-                    />
-                </div>
-                
-                <div className="form-row">
-                    <TextField name="ssn" type="password" label="Social Security Number" variant="standard" value={formValues.ssn} onChange={handleInputChange} required />
-                </div>
-
-                <Button variant="text" type="submit" style={{ marginTop: "10px" }} >Submit</Button>
-            </form>
-        </Box>
+                </form>
+        </Paper>
     );
 
     return (
         <div>
-            <Button variant="outlined" onClick={handleOpen}>
-                Login
+            <Button color="secondary" variant="contained" onClick={handleOpen} size="large">
+                <strong>Vote</strong>
             </Button>
             <Modal open={open} onClose={handleClose}>
                 { loginDiv }

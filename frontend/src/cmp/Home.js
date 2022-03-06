@@ -1,4 +1,4 @@
-import { Typography, Box, Paper } from "@mui/material";
+import { Typography } from "@mui/material";
 // import { useState } from 'react';
 import Login from "./Login";
 
@@ -8,21 +8,18 @@ const Home = () => {
 
     return (
         <div className="home page">
-            <Typography variant="h2" className="page-title">Home Page</Typography>
-            <Paper className="page-body" elevation={1} >
-                <Typography paragraph={true} align="center">
-                    Consequuntur eveniet ut aut. Velit qui quibusdam rem corporis fugit. Id cumque aut eum distinctio mollitia.
-
-                    Ut et earum perspiciatis accusantium voluptate voluptate sed veniam. Fugiat dolorem animi ut praesentium unde quos. Suscipit quis accusantium provident. Quis ipsum saepe voluptatem accusamus explicabo.
-
-                    Excepturi at deleniti nihil qui architecto amet. Facere quod nostrum velit a doloribus aut autem. Quae vel occaecati porro quia. Quis tempore ullam atque consequatur voluptate. Voluptatibus dignissimos vero veniam magnam dignissimos.
-
-                    Ut animi laudantium dolor assumenda non soluta. Sint voluptatem sit repellendus. Rerum aut magnam voluptatem dolores dignissimos eligendi eaque quaerat. Pariatur excepturi et hic nulla hic velit eos debitis.
-
-                    Ipsa ut et cum. Est eius ratione corrupti delectus odio. Et nihil dolore ut ipsam ut quasi harum. Quia fuga perferendis aliquid. Quibusdam minima unde officiis.
+            <div className="page-body">
+                <Typography variant="h2">Blockchain Ballot</Typography>
+                <Typography variant="h6" align="center">
+                    Welcome! This web-app is a proof-of-concept demo for a secure, efficient, and completely online 
+                    system of voting. The Blockchain Ballot relies on encryption and blockchain technology to prevent
+                    fraudulent voting and discrepencies in vote-counting, all while being completely accessable
+                    online! Users can vote in local elections with their state-ballot if they have a valid 
+                    SSN and are registered to vote in their state. Click the button below to verify your credentials 
+                    and cast your ballot, or visit the About page and learn more about our tech!
                 </Typography>
-            </Paper>
-            <Login /> 
+                <Login /> 
+            </div>
         </div>
     );
 }
