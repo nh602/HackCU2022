@@ -39,4 +39,17 @@ async function checkVoterRegistration(req, res, next){
   }
 }
 
-module.exports = checkVoterRegistration;
+async function getBallotMeasures(req, res, next){
+  try{
+    const q = await query("SELECT id, measureText, measureOptions FROM ballotMeasures");
+    
+    req.measures = q.rows;
+    next();
+  }catch (e){
+    console.log("Failed getting ballots");
+    console.log(e);
+    return res.status(500).json({code: 500})
+  }
+}
+
+module.exports = {checkVoterRegistration, getBallotMeasures};

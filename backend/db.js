@@ -1,14 +1,31 @@
 const {Pool} = require('pg');
 const {hash} = require('bcrypt');
 const { Blockchain } = require('./blockchain');
+const format = require('pg-format')
 
 const pool = new Pool();
+
+const {processVote} = require('./Controllers/VoteController');
 
 async function loadData(){
   try{
     await pool.query("DELETE FROM voterRegistration;");
     await pool.query("DELETE FROM voterAddress;");
     await pool.query("DELETE FROM ballotMeasures");
+
+    const values = [
+      ["Presidential Election", ["John Doe", "Joe Mama"]],
+      ["Proposition: Do we really need taxes?", ["Yes", "No"]],
+      ["Proposition: Would having a purge day solve world peace?", ["Yes", "No"]],
+    ]
+
+    for(let i = 0; i < values.length; i++){
+      values[i][1] = format("{%L}", values[i][1])
+    }
+
+    const sql = format(`INSERT INTO ballotMeasures (measureText, measureOptions) VALUES %L`, values);
+    
+    await pool.query(sql, []);
     
     for(let i = 100000000; i < 100000100; i++){
       const addressResult = await pool.query(
@@ -32,7 +49,15 @@ async function loadData(){
           await hash(i.toString(), 10),
           "10/06/2002"
         ]
-      ); 
+      );
+
+      const vote = {
+        ballot:{
+          
+        }
+      }
+      
+
     }
 
     console.log("Inserted Mock Data");

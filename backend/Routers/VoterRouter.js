@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const checkVoterRegistration = require('../Models/VoterModel')
+const {checkVoterRegistration} = require('../Models/VoterModel')
 const jwt = require('jsonwebtoken');
 
 router.post('/users', checkVoterRegistration, async (req, res) => {

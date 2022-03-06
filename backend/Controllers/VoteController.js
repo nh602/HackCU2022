@@ -47,4 +47,8 @@ function tallyVotes(req, res){
   
 }
 
-module.exports = {checkCookie, processVote, searchForBallot}
+function getBallotIssues(req, res){
+  return res.status(200).json({measures: req.measures})
+}
+
+module.exports = {checkCookie, processVote, searchForBallot, getBallotIssues}
