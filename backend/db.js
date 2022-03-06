@@ -14,16 +14,16 @@ async function loadData(){
     await pool.query("DELETE FROM ballotMeasures");
 
     const values = [
-      ["Presidential Election", ["John Doe", "Joe Mama"]],
-      ["Proposition: Do we really need taxes?", ["Yes", "No"]],
-      ["Proposition: Would having a purge day solve world peace?", ["Yes", "No"]],
+      ["Presidential Election", ["John Doe", "Joe Mama"], ""],
+      ["Proposition: Do we really need taxes?", ["Yes", "No"], ""],
+      ["Proposition: Would having a purge day solve world peace?", ["Yes", "No"], ""],
     ]
 
     for(let i = 0; i < values.length; i++){
       values[i][1] = format("{%L}", values[i][1])
     }
 
-    const sql = format(`INSERT INTO ballotMeasures (measureText, measureOptions) VALUES %L`, values);
+    const sql = format(`INSERT INTO ballotMeasures (measureText, measureOptions, statae) VALUES %L`, values);
     
     await pool.query(sql, []);
     
@@ -53,7 +53,7 @@ async function loadData(){
 
       const vote = {
         ballot:{
-          
+
         }
       }
       
