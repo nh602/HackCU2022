@@ -8,8 +8,8 @@ const Home = () => {
 
     return (
         <div className="home page">
-            <Typography variant="h2" className="page-title">Home Page</Typography>
-            <Paper className="page-body" elevation={1} >
+        <Typography variant="h3">Blockchain Ballot</Typography>
+            <Paper className="page-body" elevation={5} >
                 <Typography paragraph={true} align="center">
                     Consequuntur eveniet ut aut. Velit qui quibusdam rem corporis fugit. Id cumque aut eum distinctio mollitia.
 

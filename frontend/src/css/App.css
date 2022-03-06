@@ -3,12 +3,17 @@ html, body {
   padding: 0;
 }
 
+* {
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(53, 53, 53);
+}
+
 .app {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    background: linear-gradient(45deg, rgba(139, 0, 0, 0.308), rgb(255, 245, 201), rgba(0, 0, 177, 0.219));
-    height: 100vh;
+    gap: 60px;
+    min-height: 100vh;
+    background-color: rgba(250, 235, 215, 0.363);
 }
 
 .page {
@@ -18,11 +23,13 @@ html, body {
     justify-content: flex-start;
     height: 100%;
     gap: 20px;
+    padding-bottom: 70px;
 }
 
 .page-body {
     width: 50%;
     padding: 30px;
     padding-top: 40px;
+
 }
 

@@ -1,7 +1,10 @@
 
+.ballot-paper {
+    width: 50%;
+}
+
 .ballot-form {
     background-color: rgba(240, 248, 255, 0.493);
-    width: 50%;
     display: flex;
     flex-direction: column;
     min-height: 80%;

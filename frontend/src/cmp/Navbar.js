@@ -1,34 +1,36 @@
-import * as React from 'react';
-import {
-    Link,
-    AppBar,
-    Toolbar,
-    Typography,
-    Button,
-    Box,
-    Container
-} from '@mui/material';
+import { Paper, Box, Typography } from '@mui/material';
 import '../css/navbar.css';
+
+const NavLink = (props) => {
+
+    return (
+        <li>
+            <a 
+                className="nav-link"
+                href={ props.href }
+            >
+                <Typography variant="h6">
+                    { props.text }
+                </Typography>
+            </a>
+        </li>
+    );
+}
 
 const Navbar = () => {
 
     return (
-        <AppBar position="static">
-            <Container maxWidth="x1">
-                <Toolbar disableGutters>
-                    <Typography variant="h5" sx={{ mr: 2, display: { md: 'flex' } }}>
-                        Navbar
-                    </Typography>
-
-                    <Box sx={{ flexGrow: 1, display: { md: 'flex' }}}>
-                        <Link href="/" color="inherit" variant="body2" underline="none" sx={{  }}>Home</Link>
-                        <Link href="/about" color="inherit" variant="body2" underline="none" sx={{ ml: 2 }}>About</Link>
-                    </Box>
-
-                    <Button color="inherit">Login</Button>
-                </Toolbar>
-            </Container>
-        </AppBar>
+        <Paper className="nav-paper" elevation={5}>
+            <div className="nav-box">
+                <ul className="left links">
+                    <NavLink href="/" text="home" />
+                    <NavLink href="/about" text="about" /> 
+                </ul>
+                <ul className="right links">
+                    
+                </ul>
+            </div>
+        </Paper>
     );
 }
 
