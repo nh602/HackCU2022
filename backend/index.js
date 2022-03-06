@@ -1,9 +1,15 @@
-var express = require("express");
+const express = require("express");
+require('dotenv').config();
+const db = require('./db');
+const router = require('./Routers/routes');
 
-var app = express();
+db.loadData();
 
-app.get('/', (req, res) => {
-  res.send("Hello, world");
-});
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/api', router);
 
 app.listen(3000);
+console.log("Listening on port 3000");

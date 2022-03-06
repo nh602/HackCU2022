@@ -10,8 +10,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@faker-js/faker": "^6.0.0-alpha.7",
+    "bcrypt": "^5.0.1",
     "crypto": "^1.0.1",
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
-    "nodemon": "^2.0.15"
+    "faker": "^6.6.6",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.3"
   }
 }
