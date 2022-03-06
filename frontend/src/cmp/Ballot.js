@@ -38,8 +38,6 @@ const Ballot = (props) => {
     const [ballotData, setBallotData] = useState({})
     const ballotInfo = mockBallot;
 
-    console.table(ballotInfo);
-
     const handleChange = event => {
         let newBallotData = ballotData;
         newBallotData[event.target.name] = event.target.value;
@@ -93,10 +91,12 @@ const Ballot = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.table(ballotData);
         UserService.postBallot(ballotData)
             .then((res) => {
-                window.open('/', "_self")
+                console.log(res);
+                if(res.success === true) {
+                    //window.open('/', "_self")
+                }
             })
             .catch((err) => {
                 console.log(err);
