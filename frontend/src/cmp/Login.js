@@ -1,14 +1,14 @@
 import "../css/login.css";
-import { TextField, Autocomplete, Typography, Button, Modal, Box } from '@mui/material';
+import { TextField, Typography, Button, Modal, Box } from '@mui/material';
 import { useState } from "react";
 
-const states = [
-    'AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 
-    'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD',
-    'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH',
-    'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC',
-    'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY'
-]
+// const states = [
+//     'AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 
+//     'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD',
+//     'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH',
+//     'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC',
+//     'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY'
+// ];
 
 
 const Login = () => {
@@ -25,13 +25,18 @@ const Login = () => {
         setOpen(false);
     };
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('submit!');
+    };
+
     const loginDiv = (
         <Box className="login-div">
             <div className="modal-header">
                 <Typography variant="h4">Login</Typography>
                 <Typography>Please enter valid voter-registration information.</Typography>
             </div>
-            <form className="login-form" action="#">
+            <form className="login-form" onSubmit={ handleSubmit }  id="login-form">
                 <div className="form-row">
                     <TextField id="firstname" label="First Name" variant="standard" required />
                     <TextField id="lastname" label="Last Name" variant="standard" required />
@@ -48,7 +53,7 @@ const Login = () => {
                     <TextField id="zipcode" label="ZIP" variant="standard" required />
                 </div>
 
-                <Button variant="text">Submit</Button>
+                <Button variant="text" type="submit" >Submit</Button>
             </form>
         </Box>
     );

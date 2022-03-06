@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home.js';
 import About from './About.js';
 import Navbar from './Navbar.js';
+import Ballot from './Ballot.js';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/ballot" element={<Ballot />} />
         </Routes>
       </Router>
     </div>
