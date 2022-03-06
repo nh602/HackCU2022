@@ -33,8 +33,10 @@ const UserService = {
 
     postBallot: async function(data) {
         try {
-            const response = await axios.post();
-            return response.data;
+            // const response = await axios.post();
+            // return response.data;
+            console.table(data);
+            return { success: true };
         } catch (error) {
             throw error;
         }
