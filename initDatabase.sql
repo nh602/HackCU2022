@@ -1,7 +1,9 @@
 CREATE TABLE IF NOT EXISTS ballotMeasures(
   id SERIAL PRIMARY KEY,
   measureText VARCHAR(1000) NOT NULL,
-  measureOptions VARCHAR(60)[] NOT NULL
+  measureOptions VARCHAR(60)[] NOT NULL,
+  state VARCHAR(2) NOT NULL,
+  writeIn BOOLEAN DEFAULT false
 );
 
 CREATE TABLE IF NOT EXISTS voterAddress(
@@ -19,7 +21,7 @@ CREATE TABLE IF NOT EXISTS voterRegistration(
   middleName VARCHAR(30),
   lastName VARCHAR(30) NOT NULL,
   ssn VARCHAR(60) NOT NULL,
-  addressId SERIAL NOT NULL,
+  addressId SERIAL,
   dob DATE NOT NULL,
   FOREIGN KEY(addressId)
     REFERENCES voterAddress(id)
